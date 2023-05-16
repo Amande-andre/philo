@@ -15,6 +15,8 @@ NAME = philo
 SRCS_DIR = srcs
 SRCS =	$(SRCS_DIR)/main.c \
 		$(SRCS_DIR)/parseur.c \
+		$(SRCS_DIR)/tools.c \
+		$(SRCS_DIR)/philo.c \
 
 OBJS_DIR = objs
 OBJS = $(patsubst $(SRCS_DIR)/%.c, $(OBJS_DIR)/%.o, $(SRCS))
