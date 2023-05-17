@@ -6,7 +6,7 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:33:02 by anmande           #+#    #+#             */
-/*   Updated: 2023/05/17 13:56:05 by anmande          ###   ########.fr       */
+/*   Updated: 2023/05/17 15:47:28 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,9 @@ long int truetime(t_data *data)
 	gettimeofday(&data->op, NULL);
 	time = (data->op.tv_sec * 1000) + (data->op.tv_usec / 1000);
 	return (time - data->start);
+}
+
+void	ft_routine(t_data *data)
+{
+	
 }

@@ -6,7 +6,7 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:57:32 by anmande           #+#    #+#             */
-/*   Updated: 2023/05/17 14:22:00 by anmande          ###   ########.fr       */
+/*   Updated: 2023/05/17 15:50:55 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <sys/time.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <pthread.h>
 
 typedef struct s_data
 {
@@ -34,6 +35,7 @@ typedef struct s_data
 	struct timeval	tv;
 	struct timeval	op;
 	long int		start;
+	pthread_t		*thread;
 }	t_data;
 
 int			ft_parseur(int argc, char **argv);
