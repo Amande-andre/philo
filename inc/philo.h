@@ -6,7 +6,7 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:57:32 by anmande           #+#    #+#             */
-/*   Updated: 2023/05/17 15:50:55 by anmande          ###   ########.fr       */
+/*   Updated: 2023/05/18 18:12:15 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,13 @@
 # include <stdlib.h>
 # include <pthread.h>
 
+typedef struct s_phi
+{
+	struct s_data 	*data;
+	int				**id;
+	pthread_t		thread;
+}	t_phi;
+
 typedef struct s_data
 {
 	int				nb_philo;
@@ -35,8 +42,9 @@ typedef struct s_data
 	struct timeval	tv;
 	struct timeval	op;
 	long int		start;
-	pthread_t		*thread;
+	t_phi			*table_phi;
 }	t_data;
+
 
 int			ft_parseur(int argc, char **argv);
 int			ft_isdigit(char c);
@@ -45,5 +53,7 @@ int			ft_philo(t_data *data, int argc, char **argv);
 void		ft_setdata(t_data *data, char **argv);
 long int	ft_atoi(const char *nptr);
 long int	truetime(t_data *data);
+void		*ft_routine(t_data *data);
+void		ft_thread(t_data *data);
 
 #endif

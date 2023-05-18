@@ -13,16 +13,18 @@
 NAME = philo
 
 SRCS_DIR = srcs
+
 SRCS =	$(SRCS_DIR)/main.c \
 		$(SRCS_DIR)/parseur.c \
 		$(SRCS_DIR)/tools.c \
 		$(SRCS_DIR)/philo.c \
+		$(SRCS_DIR)/routine.c \
 
 OBJS_DIR = objs
 OBJS = $(patsubst $(SRCS_DIR)/%.c, $(OBJS_DIR)/%.o, $(SRCS))
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 .PHONY: all clean fclean re
 
