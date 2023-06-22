@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
+/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:57:32 by anmande           #+#    #+#             */
-/*   Updated: 2023/05/18 18:12:15 by anmande          ###   ########.fr       */
+/*   Updated: 2023/06/22 15:55:03 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,13 @@
 typedef struct s_phi
 {
 	struct s_data 	*data;
-	int				**id;
-	pthread_t		thread;
+	int			id;
+	long int	birth;
+	long int	death;
+	long int	eat;
+	pthread_t	thread;
+	pthread_mutex_t	*lf;
+	pthread_mutex_t	*rf;
 }	t_phi;
 
 typedef struct s_data

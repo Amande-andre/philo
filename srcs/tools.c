@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
+/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:33:02 by anmande           #+#    #+#             */
-/*   Updated: 2023/05/18 18:17:12 by anmande          ###   ########.fr       */
+/*   Updated: 2023/06/22 16:17:37 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ void	ft_setdata(t_data *data, char **argv)
 	else
 		data->nb_eat = -1;
 	gettimeofday(&data->tv, NULL);
+	ft_thread(data);
+
 	data->start = (data->tv.tv_sec * 1000) + (data->tv.tv_usec / 1000);
 }
 

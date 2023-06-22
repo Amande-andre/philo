@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
+/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 11:22:55 by anmande           #+#    #+#             */
-/*   Updated: 2023/05/18 18:24:46 by anmande          ###   ########.fr       */
+/*   Updated: 2023/06/22 16:34:52 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ void	ft_thread(t_data *data)
 	i = 0;
 	while (i < data->nb_philo)
 	{
-		pthread_create(&phi->thread, NULL, (void*)ft_routine, NULL);
+		pthread_create(&phi[i].thread, NULL, (void*)ft_routine, NULL);
 		i++;
-		phi->id[i][0] = i;
+		phi[i].id = i;
 	}
 	i = 0;
-	while (i < phi->data->nb_philo)
-	{
-		pthread_join(phi->thread, NULL);
-		i++;
-	}
+	// while (i < phi->data->nb_philo)
+	// {
+	// 	pthread_join(phi->thread, NULL);
+	// 	i++;
+	// }
 }
