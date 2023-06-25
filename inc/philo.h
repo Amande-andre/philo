@@ -6,7 +6,7 @@
 /*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:57:32 by anmande           #+#    #+#             */
-/*   Updated: 2023/06/24 16:58:22 by admin            ###   ########.fr       */
+/*   Updated: 2023/06/25 21:05:52 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef struct s_data
 	struct timeval	tv;
 	struct timeval	op;
 	long int		start;
+	pthread_mutex_t	*forks;
 	t_phi			*table_phi;
 }	t_data;
 
@@ -59,6 +60,9 @@ void		ft_setdata(t_data *d, char **argv);
 long int	ft_atoi(const char *nptr);
 long int	truetime(t_data *d);
 void		*ft_routine(t_phi *phi);
-int		ft_thread(t_data *d);
+int			ft_thread(t_data *d);
+int			ft_init_phi(t_phi *phi, int i, t_data *d);
+int			ft_mutex(t_data *d);
+void    ft_printchart(t_data *d, t_phi phi);
 
 #endif
