@@ -6,7 +6,7 @@
 /*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:57:32 by anmande           #+#    #+#             */
-/*   Updated: 2023/06/22 15:55:03 by admin            ###   ########.fr       */
+/*   Updated: 2023/06/24 16:58:22 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@
 
 typedef struct s_phi
 {
-	struct s_data 	*data;
-	int			id;
-	long int	birth;
-	long int	death;
-	long int	eat;
-	pthread_t	thread;
+	int				id;
+	long int		birth;
+	long int		death;
+	long int		eat;
+	pthread_t		thread;
 	pthread_mutex_t	*lf;
 	pthread_mutex_t	*rf;
+	struct s_data	*table;
 }	t_phi;
 
 typedef struct s_data
@@ -54,11 +54,11 @@ typedef struct s_data
 int			ft_parseur(int argc, char **argv);
 int			ft_isdigit(char c);
 int			ft_checkarg(int argc, char **argv);
-int			ft_philo(t_data *data, int argc, char **argv);
-void		ft_setdata(t_data *data, char **argv);
+int			ft_philo(t_data *d, int argc, char **argv);
+void		ft_setdata(t_data *d, char **argv);
 long int	ft_atoi(const char *nptr);
-long int	truetime(t_data *data);
-void		*ft_routine(t_data *data);
-void		ft_thread(t_data *data);
+long int	truetime(t_data *d);
+void		*ft_routine(t_phi *phi);
+int		ft_thread(t_data *d);
 
 #endif

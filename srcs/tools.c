@@ -6,7 +6,7 @@
 /*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:33:02 by anmande           #+#    #+#             */
-/*   Updated: 2023/06/22 16:17:37 by admin            ###   ########.fr       */
+/*   Updated: 2023/06/24 11:50:43 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,28 +37,28 @@ long int	ft_atoi(const char *nptr)
 	return (n * sign);
 }
 
-void	ft_setdata(t_data *data, char **argv)
+void	ft_setd(t_data *d, char **argv)
 {	
-	//printf("phi->data->nb_philo = %d\n", phi->data->nb_philo);
-	data->nb_philo = ft_atoi(argv[1]); 
-	data->time_to_die = ft_atoi(argv[2]);
-	data->time_to_eat = ft_atoi(argv[3]);
-	data->time_to_sleep = ft_atoi(argv[4]);
+	//printf("phi->d->nb_philo = %d\n", phi->d->nb_philo);
+	d->nb_philo = ft_atoi(argv[1]); 
+	d->time_to_die = ft_atoi(argv[2]);
+	d->time_to_eat = ft_atoi(argv[3]);
+	d->time_to_sleep = ft_atoi(argv[4]);
 	if (argv[5])
-		data->nb_eat = ft_atoi(argv[5]);
+		d->nb_eat = ft_atoi(argv[5]);
 	else
-		data->nb_eat = -1;
-	gettimeofday(&data->tv, NULL);
-	ft_thread(data);
+		d->nb_eat = -1;
+	gettimeofday(&d->tv, NULL);
+	ft_thread(d);
 
-	data->start = (data->tv.tv_sec * 1000) + (data->tv.tv_usec / 1000);
+	d->start = (d->tv.tv_sec * 1000) + (d->tv.tv_usec / 1000);
 }
 
-long int truetime(t_data *data)
+long int truetime(t_data *d)
 {
 	long int	time;
 
-	gettimeofday(&data->op, NULL);
-	time = (data->op.tv_sec * 1000) + (data->op.tv_usec / 1000);
-	return (time - data->start);
+	gettimeofday(&d->op, NULL);
+	time = (d->op.tv_sec * 1000) + (d->op.tv_usec / 1000);
+	return (time - d->start);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
+/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:01:02 by anmande           #+#    #+#             */
-/*   Updated: 2023/05/18 18:16:30 by anmande          ###   ########.fr       */
+/*   Updated: 2023/06/24 11:51:00 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 int	main(int argc, char **argv)
 {
-	t_data *data;
+	t_data *d;
 	
-	data = malloc(sizeof(t_data));
-	if (!data)
+	d = malloc(sizeof(t_data));
+	if (!d)
 		return (0);
-	if (!ft_philo(data, argc, argv))
+	if (!ft_philo(d, argc, argv))
 		return (0);
-	printf(""YELLOW"time = "NC"%ld\n", truetime(data));
-	free(data);
+	//printf(""YELLOW"time = "NC"%ld\n", truetime(data));
+	free(d);
 		return (0);
 }

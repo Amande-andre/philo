@@ -6,35 +6,48 @@
 /*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 11:22:55 by anmande           #+#    #+#             */
-/*   Updated: 2023/06/22 16:34:52 by admin            ###   ########.fr       */
+/*   Updated: 2023/06/24 17:15:13 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philo.h"
 
-void	*ft_routine(t_data *data)
+void	*ft_routine(t_phi *phi)
 {
-	printf(""BLUE"thread= \n");
-	(void)data;
+	printf("%d" BLUE"id= \n", phi->id);
+	write(1, "1\n", 2);
 	return (NULL);
 }
 
-void	ft_thread(t_data *data)
+static int	init_thread(t_data *d, t_phi *phi)
 {
-	int	i;
+	int i;
+
+	i = 0;
+	while (i < d->nb_philo)
+	{
+		phi[i].id = i;
+		printf(BLUE "id= ""%d" "\n", phi->id);
+		pthread_create(&phi[i].thread, NULL, ft_routine(phi), );
+		// if (pthread_create(&phi[i].thread, NULL, &ft_routine, &phi[i]) == -1)
+		// 	return (-1);
+		//phi->[i] = d;
+		i++;
+	}
+	return (0);
+}
+
+int	ft_thread(t_data *d)
+{
 	t_phi *phi;
 	
-	phi = malloc(sizeof(t_phi) * data->nb_philo);
-	data->table_phi = phi;
-	i = 0;
-	while (i < data->nb_philo)
-	{
-		pthread_create(&phi[i].thread, NULL, (void*)ft_routine, NULL);
-		i++;
-		phi[i].id = i;
-	}
-	i = 0;
-	// while (i < phi->data->nb_philo)
+	phi = malloc(sizeof(t_phi) * d->nb_philo);
+	if (!phi || init_thread(d, phi) != 0)
+		return (1);
+	//d->table_phi = phi;
+	
+	
+	// while (i < d->nb_philo)
 	// {
 	// 	pthread_join(phi->thread, NULL);
 	// 	i++;
