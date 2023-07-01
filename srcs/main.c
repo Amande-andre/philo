@@ -6,7 +6,7 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:01:02 by anmande           #+#    #+#             */
-/*   Updated: 2023/05/18 18:16:30 by anmande          ###   ########.fr       */
+/*   Updated: 2023/05/30 12:33:03 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	main(int argc, char **argv)
 		return (0);
 	if (!ft_philo(data, argc, argv))
 		return (0);
-	printf(""YELLOW"time = "NC"%ld\n", truetime(data));
 	free(data);
 		return (0);
 }

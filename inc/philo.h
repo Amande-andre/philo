@@ -6,7 +6,7 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:57:32 by anmande           #+#    #+#             */
-/*   Updated: 2023/05/18 18:12:15 by anmande          ###   ########.fr       */
+/*   Updated: 2023/06/21 17:21:54 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,22 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <pthread.h>
+# include <string.h>
 
 typedef struct s_phi
 {
-	struct s_data 	*data;
-	int				**id;
 	pthread_t		thread;
+	int				death;
+	long int		last_meal;
+	pthread_mutex_t	*lf;
+	pthread_mutex_t	*rf;
+	long int		born;
+	int				id;
 }	t_phi;
 
 typedef struct s_data
 {
+	long int		start;
 	int				nb_philo;
 	int				time_to_die;
 	int				time_to_eat;
@@ -41,10 +47,8 @@ typedef struct s_data
 	int				nb_eat;
 	struct timeval	tv;
 	struct timeval	op;
-	long int		start;
 	t_phi			*table_phi;
 }	t_data;
-
 
 int			ft_parseur(int argc, char **argv);
 int			ft_isdigit(char c);
@@ -55,5 +59,6 @@ long int	ft_atoi(const char *nptr);
 long int	truetime(t_data *data);
 void		*ft_routine(t_data *data);
 void		ft_thread(t_data *data);
+void		*ft_calloc(size_t nmemb, size_t size);
 
 #endif
