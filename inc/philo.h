@@ -6,7 +6,7 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:57:32 by anmande           #+#    #+#             */
-/*   Updated: 2023/07/06 11:30:57 by anmande          ###   ########.fr       */
+/*   Updated: 2023/07/06 14:02:28 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #define RED		"\e[31m"
 #define GREEN	"\e[32m"
 #define BLUE	"\e[34m"
+#define	SLEEP	10
 
 # include <stdio.h>
 # include <sys/time.h>
@@ -59,7 +60,7 @@ int			ft_philo(t_data *d, int argc, char **argv);
 void		ft_setdata(t_data *d, char **argv);
 long int	ft_atoi(const char *nptr);
 long int	truetime(t_data *d);
-void		*ft_routine(t_phi *phi);
+void		*ft_routine(void *phi);
 int			ft_thread(t_data *d);
 int			ft_init_phi(t_phi *phi, int i, t_data *d);
 int			ft_mutex(t_data *d);

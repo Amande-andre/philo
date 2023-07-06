@@ -6,27 +6,22 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 11:22:55 by anmande           #+#    #+#             */
-/*   Updated: 2023/07/06 11:26:58 by anmande          ###   ########.fr       */
+/*   Updated: 2023/07/06 14:01:40 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philo.h"
 
-static int	init_thread(t_data *d, t_phi *phi)
+static void	end_threads(t_data *d, t_phi *phi)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < d->nb_philo)
 	{
-		//printf(BLUE "id= ""%d" "\n", phi->id);
-		if (pthread_create(&phi[i].thread, NULL, ft_routine(&phi[i]), NULL) == -1)
-			return (-1);
-
-		//phi->[i] = d;
+		pthread_join(phi->thread, NULL);
 		i++;
 	}
-	return (0);
 }
 
 int	ft_thread(t_data *d)
@@ -39,17 +34,13 @@ int	ft_thread(t_data *d)
 	while (i < d->nb_philo)
 	{
 		ft_init_phi(&phi[i], i + 1, d);
+		if (pthread_create(&phi[i].thread, NULL, ft_routine, &phi[i]) != 0)		//!phi || 	>> si probleme 
+			return (1);
+		usleep(10);
 		i++;
 	}
-	if (!phi || init_thread(d, phi) != 0)
-		return (1);
+	end_threads(d, phi);
 	return (0);
-	
-	while (i < d->nb_philo)
-	{
-		pthread_join(phi->thread, NULL);
-		i++;
-	}
 }
 
 int	ft_mutex(t_data *d)
