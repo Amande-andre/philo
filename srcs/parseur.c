@@ -6,13 +6,13 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:22:15 by anmande           #+#    #+#             */
-/*   Updated: 2023/05/16 17:12:30 by anmande          ###   ########.fr       */
+/*   Updated: 2023/07/01 16:50:00 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philo.h"
 
-int ft_parseur(int argc, char **argv)
+int	ft_parseur(int argc, char **argv)
 {
 	if (!ft_checkarg(argc, argv))
 	{

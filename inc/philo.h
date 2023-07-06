@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:57:32 by anmande           #+#    #+#             */
-/*   Updated: 2023/06/25 21:05:52 by admin            ###   ########.fr       */
+/*   Updated: 2023/07/06 11:30:57 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,6 @@ void		*ft_routine(t_phi *phi);
 int			ft_thread(t_data *d);
 int			ft_init_phi(t_phi *phi, int i, t_data *d);
 int			ft_mutex(t_data *d);
-void    ft_printchart(t_data *d, t_phi phi);
+void    	ft_printchart(t_data *d, t_phi *phi);
 
 #endif

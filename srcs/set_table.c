@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_table.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 11:22:55 by anmande           #+#    #+#             */
-/*   Updated: 2023/06/25 20:58:33 by admin            ###   ########.fr       */
+/*   Updated: 2023/07/06 11:26:58 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,18 @@ int	ft_thread(t_data *d)
 	phi = malloc(sizeof(t_phi) * d->nb_philo);
 	while (i < d->nb_philo)
 	{
-		ft_init_phi(&phi[i], i, d);
+		ft_init_phi(&phi[i], i + 1, d);
 		i++;
 	}
 	if (!phi || init_thread(d, phi) != 0)
 		return (1);
 	return (0);
 	
-	// while (i < d->nb_philo)
-	// {
-	// 	pthread_join(phi->thread, NULL);
-	// 	i++;
-	// }
+	while (i < d->nb_philo)
+	{
+		pthread_join(phi->thread, NULL);
+		i++;
+	}
 }
 
 int	ft_mutex(t_data *d)
