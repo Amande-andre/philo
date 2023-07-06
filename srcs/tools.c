@@ -6,7 +6,7 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:33:02 by anmande           #+#    #+#             */
-/*   Updated: 2023/07/06 13:32:37 by anmande          ###   ########.fr       */
+/*   Updated: 2023/07/06 15:07:48 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	ft_setdata(t_data *d, char **argv)
 		d->nb_eat = -1;
 	gettimeofday(&d->tv, NULL);
 	d->start = (d->tv.tv_sec * 1000) + (d->tv.tv_usec / 1000);
-	//ft_mutex(d);
+	ft_mutex(d);
 	ft_thread(d);
 }
 
@@ -60,4 +60,9 @@ long int truetime(t_data *d)
 	gettimeofday(&d->op, NULL);
 	time = (d->op.tv_sec * 1000) + (d->op.tv_usec / 1000);
 	return (time - d->start);
+}
+
+void	ft_printchart(t_data *d, t_phi *phi)
+{
+	printf("%ldms %d\n", truetime(d), phi->id);
 }

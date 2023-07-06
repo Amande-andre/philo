@@ -6,7 +6,7 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 11:22:55 by anmande           #+#    #+#             */
-/*   Updated: 2023/07/06 14:01:40 by anmande          ###   ########.fr       */
+/*   Updated: 2023/07/06 15:02:34 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_thread(t_data *d)
 	while (i < d->nb_philo)
 	{
 		ft_init_phi(&phi[i], i + 1, d);
-		if (pthread_create(&phi[i].thread, NULL, ft_routine, &phi[i]) != 0)		//!phi || 	>> si probleme 
+		if (pthread_create(&phi[i].thread, NULL, ft_routine, &phi[i]) != 0)
 			return (1);
 		usleep(10);
 		i++;
