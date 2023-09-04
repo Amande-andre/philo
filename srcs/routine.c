@@ -6,23 +6,34 @@
 /*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 20:57:32 by admin             #+#    #+#             */
-/*   Updated: 2023/06/25 21:12:10 by admin            ###   ########.fr       */
+/*   Updated: 2023/09/04 21:57:57 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philo.h"
 
-void	*ft_routine(t_phi *phi)
+void	ft_eating(t_phi *phi)
 {
-	// if (truetime(phi->table) >= phi->table->time_to_die)
-		ft_printchart(phi->table, *phi);
-	// while (phi->death == 0)
-	// {
-	// }
-	return (NULL);
+	printf("id = %d is eating\n time = %u\n", phi->id, truetime(phi->table));
 }
 
-void    ft_printchart(t_data *d, t_phi phi)
+void	*ft_routine(void *phi_ptr)
 {
-    printf("%ldms %d ", truetime(d), phi.id);
+	t_phi	*phi;
+
+	phi = phi_ptr;
+	while (phi->nb_meal > 0 || phi->death == 1)
+	{
+		//usleep(1);
+		printf("id = %d eat = %d time = %u\n", phi->id, phi->nb_meal, truetime(phi->table));
+		ft_eating(phi);
+		//write(1, "&", 1);
+		phi->nb_meal--;
+	}
+	return ((void *)0);
 }
+
+// void	ft_take_fork(t_phi *phi)
+// {
+	
+// }

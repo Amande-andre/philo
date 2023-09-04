@@ -6,7 +6,7 @@
 /*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:33:02 by anmande           #+#    #+#             */
-/*   Updated: 2023/06/25 20:53:34 by admin            ###   ########.fr       */
+/*   Updated: 2023/09/04 21:02:27 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,28 +37,11 @@ long int	ft_atoi(const char *nptr)
 	return (n * sign);
 }
 
-void	ft_setdata(t_data *d, char **argv)
-{	
-	//printf("phi->d->nb_philo = %d\n", phi->d->nb_philo);
-	d->nb_philo = ft_atoi(argv[1]); 
-	d->time_to_die = ft_atoi(argv[2]);
-	d->time_to_eat = ft_atoi(argv[3]);
-	d->time_to_sleep = ft_atoi(argv[4]);
-	if (argv[5])
-		d->nb_eat = ft_atoi(argv[5]);
-	else
-		d->nb_eat = -1;
-	gettimeofday(&d->tv, NULL);
-	d->start = (d->tv.tv_sec * 1000) + (d->tv.tv_usec / 1000);
-	ft_mutex(d);
-	ft_thread(d);
-}
-
-long int truetime(t_data *d)
+unsigned int truetime(t_data *d)
 {
-	long int	time;
+	unsigned int	time;
 
 	gettimeofday(&d->op, NULL);
 	time = (d->op.tv_sec * 1000) + (d->op.tv_usec / 1000);
-	return (time - d->start);
+	return (time - d->start_time);
 }
