@@ -6,32 +6,22 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 11:22:55 by anmande           #+#    #+#             */
-<<<<<<< HEAD:srcs/set_table.c
-/*   Updated: 2023/07/06 15:02:34 by anmande          ###   ########.fr       */
-=======
-/*   Updated: 2023/09/04 19:43:43 by admin            ###   ########.fr       */
->>>>>>> home:srcs/init.c
+/*   Updated: 2023/09/06 13:55:29 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philo.h"
 
-<<<<<<< HEAD:srcs/set_table.c
-static void	end_threads(t_data *d, t_phi *phi)
-=======
 int	init_thread(t_data *d)
->>>>>>> home:srcs/init.c
 {
 	int	i;
 
 	i = 0;
 	while (i < d->nb_philo)
 	{
-<<<<<<< HEAD:srcs/set_table.c
-		pthread_join(phi->thread, NULL);
-=======
 		if (pthread_create(&d->tid[i], NULL, &ft_routine, &d->phi[i]) == -1)
 			return (1);
+		usleep(10);
 		i++;
 	}
 	i = 0;
@@ -39,9 +29,9 @@ int	init_thread(t_data *d)
 	{
 		if (pthread_join(d->tid[i], NULL))
 			return (1);
->>>>>>> home:srcs/init.c
 		i++;
 	}
+	return (0);
 }
 
 int	ft_init_phi(t_data *d)
@@ -51,16 +41,6 @@ int	ft_init_phi(t_data *d)
 	i = 0;
 	while (i < d->nb_philo)
 	{
-<<<<<<< HEAD:srcs/set_table.c
-		ft_init_phi(&phi[i], i + 1, d);
-		if (pthread_create(&phi[i].thread, NULL, ft_routine, &phi[i]) != 0)
-			return (1);
-		usleep(10);
-		i++;
-	}
-	end_threads(d, phi);
-	return (0);
-=======
 		d->phi[i].id = i + 1;
 		d->phi[i].status = 0;
 		d->phi[i].death = d->t2die;
@@ -93,7 +73,6 @@ int	ft_setdata(t_data *d, char **argv)
 	pthread_mutex_init(&d->lock, NULL);
 	pthread_mutex_init(&d->write, NULL);
 	return (0);
->>>>>>> home:srcs/init.c
 }
 
 int	ft_mutex(t_data *d)
@@ -116,17 +95,14 @@ int	ft_mutex(t_data *d)
 	}
 	i = 1;
 	d->phi[0].lf = &d->forks[0];
-	d->phi[0].rf = &d->forks[d->nb_philo];
+	d->phi[0].rf = &d->forks[d->nb_philo - 1];
 	while (i < d->nb_philo)
 	{
 		d->phi[i].lf = &d->forks[i];
-		d->phi[i].lf = &d->forks[i - 1];
+		d->phi[i].rf = &d->forks[i - 1];
 		i++;
 	}
 	return (0);
 }
-<<<<<<< HEAD:srcs/set_table.c
-=======
 
 
->>>>>>> home:srcs/init.c

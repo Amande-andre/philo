@@ -6,11 +6,7 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:33:02 by anmande           #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/07/06 15:07:48 by anmande          ###   ########.fr       */
-=======
-/*   Updated: 2023/09/04 21:02:27 by admin            ###   ########.fr       */
->>>>>>> home
+/*   Updated: 2023/09/06 11:40:16 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,27 +37,7 @@ long int	ft_atoi(const char *nptr)
 	return (n * sign);
 }
 
-<<<<<<< HEAD
-void	ft_setdata(t_data *d, char **argv)
-{	
-	d->nb_philo = ft_atoi(argv[1]);
-	d->time_to_die = ft_atoi(argv[2]);
-	d->time_to_eat = ft_atoi(argv[3]);
-	d->time_to_sleep = ft_atoi(argv[4]);
-	if (argv[5])
-		d->nb_eat = ft_atoi(argv[5]);
-	else
-		d->nb_eat = -1;
-	gettimeofday(&d->tv, NULL);
-	d->start = (d->tv.tv_sec * 1000) + (d->tv.tv_usec / 1000);
-	ft_mutex(d);
-	ft_thread(d);
-}
-
-long int truetime(t_data *d)
-=======
 unsigned int truetime(t_data *d)
->>>>>>> home
 {
 	unsigned int	time;
 
@@ -72,5 +48,5 @@ unsigned int truetime(t_data *d)
 
 void	ft_printchart(t_data *d, t_phi *phi)
 {
-	printf("%ldms %d\n", truetime(d), phi->id);
+	printf("%dms %d\n", truetime(d), phi->id);
 }
