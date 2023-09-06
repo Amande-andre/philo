@@ -19,7 +19,7 @@ SRCS =	$(SRCS_DIR)/main.c \
 		$(SRCS_DIR)/tools.c \
 		$(SRCS_DIR)/philo.c \
 		$(SRCS_DIR)/routine.c \
-		$(SRCS_DIR)/set_table.c \
+		$(SRCS_DIR)/init.c \
 
 OBJS_DIR = objs
 OBJS = $(patsubst $(SRCS_DIR)/%.c, $(OBJS_DIR)/%.o, $(SRCS))

@@ -6,7 +6,11 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:33:02 by anmande           #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/07/06 15:07:48 by anmande          ###   ########.fr       */
+=======
+/*   Updated: 2023/09/04 21:02:27 by admin            ###   ########.fr       */
+>>>>>>> home
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +41,7 @@ long int	ft_atoi(const char *nptr)
 	return (n * sign);
 }
 
+<<<<<<< HEAD
 void	ft_setdata(t_data *d, char **argv)
 {	
 	d->nb_philo = ft_atoi(argv[1]);
@@ -54,12 +59,15 @@ void	ft_setdata(t_data *d, char **argv)
 }
 
 long int truetime(t_data *d)
+=======
+unsigned int truetime(t_data *d)
+>>>>>>> home
 {
-	long int	time;
+	unsigned int	time;
 
 	gettimeofday(&d->op, NULL);
 	time = (d->op.tv_sec * 1000) + (d->op.tv_usec / 1000);
-	return (time - d->start);
+	return (time - d->start_time);
 }
 
 void	ft_printchart(t_data *d, t_phi *phi)

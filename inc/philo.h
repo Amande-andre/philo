@@ -6,7 +6,11 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:57:32 by anmande           #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/07/06 14:02:28 by anmande          ###   ########.fr       */
+=======
+/*   Updated: 2023/08/30 10:35:10 by admin            ###   ########.fr       */
+>>>>>>> home
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,27 +33,38 @@
 typedef struct s_phi
 {
 	int				id;
-	long int		birth;
-	long int		death;
-	long int		eat;
+	int 			status;
+	unsigned		birth;
+	unsigned		death;
+	int				nb_meal;
+	int				eating;
 	pthread_t		thread;
 	pthread_mutex_t	*lf;
 	pthread_mutex_t	*rf;
+	pthread_mutex_t	lock;
 	struct s_data	*table;
 }	t_phi;
 
 typedef struct s_data
 {
+	pthread_t		*tid;
 	int				nb_philo;
 	int				time_to_die;
 	int				time_to_eat;
 	int				time_to_sleep;
 	int				nb_eat;
+	int				dead;
+	int				end;
+	unsigned		t2die;
+	unsigned		t2eat;
+	unsigned		t2sleep;
+	unsigned		start_time;
 	struct timeval	tv;
 	struct timeval	op;
-	long int		start;
+	pthread_mutex_t lock;
 	pthread_mutex_t	*forks;
-	t_phi			*table_phi;
+	pthread_mutex_t	write;
+	t_phi			*phi;
 }	t_data;
 
 
@@ -57,13 +72,23 @@ int			ft_parseur(int argc, char **argv);
 int			ft_isdigit(char c);
 int			ft_checkarg(int argc, char **argv);
 int			ft_philo(t_data *d, int argc, char **argv);
-void		ft_setdata(t_data *d, char **argv);
+int			ft_setdata(t_data *d, char **argv);
 long int	ft_atoi(const char *nptr);
+<<<<<<< HEAD
 long int	truetime(t_data *d);
 void		*ft_routine(void *phi);
 int			ft_thread(t_data *d);
 int			ft_init_phi(t_phi *phi, int i, t_data *d);
 int			ft_mutex(t_data *d);
 void    	ft_printchart(t_data *d, t_phi *phi);
+=======
+unsigned	truetime(t_data *d);
+void		*ft_routine(void *phi_ptr);
+//int			ft_thread(t_data *d);
+int			ft_init_phi(t_data *d);
+int			ft_mutex(t_data *d);
+void    	ft_printchart(t_data *d, t_phi *phi);
+int	init_thread(t_data *d);
+>>>>>>> home
 
 #endif
