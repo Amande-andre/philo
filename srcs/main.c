@@ -6,11 +6,18 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:01:02 by anmande           #+#    #+#             */
-/*   Updated: 2023/07/06 11:37:45 by anmande          ###   ########.fr       */
+/*   Updated: 2023/09/06 15:02:06 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philo.h"
+
+void	ft_clear(t_data *d)
+{
+	free(d->forks);
+	free(d->tid);
+	free(d->phi);
+}
 
 int	main(int argc, char **argv)
 {

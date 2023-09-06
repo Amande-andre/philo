@@ -6,7 +6,7 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:04:14 by anmande           #+#    #+#             */
-/*   Updated: 2023/09/06 11:40:39 by anmande          ###   ########.fr       */
+/*   Updated: 2023/09/06 15:03:54 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	ft_philo(t_data *d, int argc, char **argv)
 	ft_init_phi(d);
 	//On créé les threads et on les init
 	init_thread(d);
+	ft_clear(d);
+	printf("End of prog. All good.");
 	return (1);
 }
 

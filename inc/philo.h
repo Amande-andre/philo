@@ -6,7 +6,7 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:57:32 by anmande           #+#    #+#             */
-/*   Updated: 2023/09/06 12:08:16 by anmande          ###   ########.fr       */
+/*   Updated: 2023/09/06 15:03:30 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,9 @@ int			ft_setdata(t_data *d, char **argv);
 long int	ft_atoi(const char *nptr);
 unsigned	truetime(t_data *d);
 void		*ft_routine(void *phi_ptr);
-//int			ft_thread(t_data *d);
 int			ft_init_phi(t_data *d);
 int			ft_mutex(t_data *d);
-void    	ft_printchart(t_data *d, t_phi *phi);
-int	init_thread(t_data *d);
-
+int			init_thread(t_data *d);
+void		ft_usleep(t_data *d, t_phi phi);
+void		ft_clear(t_data *d);
 #endif

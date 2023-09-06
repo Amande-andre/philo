@@ -6,7 +6,7 @@
 /*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:33:02 by anmande           #+#    #+#             */
-/*   Updated: 2023/09/06 11:40:16 by anmande          ###   ########.fr       */
+/*   Updated: 2023/09/06 15:21:28 by anmande          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,10 @@ unsigned int truetime(t_data *d)
 	return (time - d->start_time);
 }
 
-void	ft_printchart(t_data *d, t_phi *phi)
+void	ft_usleep(t_data *d, t_phi phi)
 {
-	printf("%dms %d\n", truetime(d), phi->id);
+	printf("%d %d is eating\n", truetime(phi.table), phi.id);
+	usleep(d->time_to_eat * 1000);
+	printf("%d %d is sleeping\n", truetime(phi.table), phi.id);
+	usleep(d->time_to_sleep * 1000);
 }
