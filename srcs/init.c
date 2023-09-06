@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
+/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 11:22:55 by anmande           #+#    #+#             */
-/*   Updated: 2023/09/06 14:10:52 by anmande          ###   ########.fr       */
+/*   Updated: 2023/09/06 21:55:58 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,10 @@ int	ft_init_phi(t_data *d)
 	{
 		d->phi[i].id = i + 1;
 		d->phi[i].status = 0;
-		d->phi[i].death = d->t2die;
+		d->phi[i].t2die = d->time_to_die;
+		d->phi[i].t2sleep = d->time_to_sleep;
 		d->phi[i].nb_meal = d->nb_eat;
-		d->phi[i].eating = d->t2eat;
+		d->phi[i].t2eat = d->time_to_eat;
 		pthread_mutex_init(&d->phi[i].lock, NULL);
 		d->phi[i].table = d;
 		i++;

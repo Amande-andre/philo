@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
+/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:01:02 by anmande           #+#    #+#             */
-/*   Updated: 2023/09/06 15:02:06 by anmande          ###   ########.fr       */
+/*   Updated: 2023/09/06 21:57:38 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_clear(t_data *d)
 {
 	free(d->forks);
-	free(d->tid);
+	//free(d->tid);
 	free(d->phi);
 }
 

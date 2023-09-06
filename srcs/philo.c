@@ -3,14 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
+/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:04:14 by anmande           #+#    #+#             */
-/*   Updated: 2023/09/06 15:03:54 by anmande          ###   ########.fr       */
+/*   Updated: 2023/09/06 21:52:11 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philo.h"
+
+void	*god(void *phi_ptr)
+{
+	t_phi	*phi;
+
+	phi = (t_phi *) phi_ptr;
+	while (phi->table->dead == 0)
+	{
+		pthread_mutex_lock(&phi->lock);
+		if (truetime(phi->table) >= phi->t2die && phi->eating == 0)
+			printf("DEAD");
+		if (phi->nb_meal == phi->table->nb_eat)
+		{
+			pthread_mutex_lock(&phi->table->lock);
+			phi->table->end++;
+			//phi->eat_cont++;
+			pthread_mutex_unlock(&phi->table->lock);
+		}
+		pthread_mutex_unlock(&phi->table->lock);
+	}
+	return ((void *)0);
+}
 
 int	ft_philo(t_data *d, int argc, char **argv)
 {

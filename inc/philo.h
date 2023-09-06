@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anmande <anmande@student.42.fr>            +#+  +:+       +#+        */
+/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:57:32 by anmande           #+#    #+#             */
-/*   Updated: 2023/09/06 15:03:30 by anmande          ###   ########.fr       */
+/*   Updated: 2023/09/06 21:55:34 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ typedef struct s_phi
 	int 			status;
 	unsigned		birth;
 	unsigned		death;
+	unsigned		t2die;
+	unsigned		t2eat;
+	unsigned		t2sleep;
 	int				nb_meal;
 	int				eating;
 	pthread_t		thread;
@@ -40,6 +43,7 @@ typedef struct s_phi
 	pthread_mutex_t	*rf;
 	pthread_mutex_t	lock;
 	struct s_data	*table;
+	pthread_t		t0;
 }	t_phi;
 
 typedef struct s_data
@@ -52,9 +56,6 @@ typedef struct s_data
 	int				nb_eat;
 	int				dead;
 	int				end;
-	unsigned		t2die;
-	unsigned		t2eat;
-	unsigned		t2sleep;
 	unsigned		start_time;
 	struct timeval	tv;
 	struct timeval	op;
@@ -78,4 +79,6 @@ int			ft_mutex(t_data *d);
 int			init_thread(t_data *d);
 void		ft_usleep(t_data *d, t_phi phi);
 void		ft_clear(t_data *d);
+void		*god(void *phi_ptr);
+
 #endif
