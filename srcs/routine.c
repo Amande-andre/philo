@@ -6,7 +6,7 @@
 /*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 20:57:32 by admin             #+#    #+#             */
-/*   Updated: 2023/09/06 21:53:08 by admin            ###   ########.fr       */
+/*   Updated: 2023/09/07 11:05:44 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,12 @@ void	ft_drop_fork(t_phi *phi)
 void	ft_eating(t_phi *phi)
 {
 	ft_take_fork(phi);
+	printf("%d %d is eating\n", truetime(phi->table), phi->id);
+	ft_usleep(phi->table->time_to_eat, phi);
 	ft_drop_fork(phi);
+	printf("%d %d is sleeping\n", truetime(phi->table), phi->id);
+	ft_usleep(phi->table->time_to_sleep, phi);
 	phi->t2die = truetime(phi->table) + phi->table->time_to_die;
-	ft_usleep(phi->table, *phi);
 }
 
 void	*ft_routine(void *phi_ptr)

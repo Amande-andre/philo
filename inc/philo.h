@@ -6,7 +6,7 @@
 /*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:57:32 by anmande           #+#    #+#             */
-/*   Updated: 2023/09/06 21:55:34 by admin            ###   ########.fr       */
+/*   Updated: 2023/09/07 11:04:40 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void		*ft_routine(void *phi_ptr);
 int			ft_init_phi(t_data *d);
 int			ft_mutex(t_data *d);
 int			init_thread(t_data *d);
-void		ft_usleep(t_data *d, t_phi phi);
+void		ft_usleep(unsigned ms, t_phi *phi);
 void		ft_clear(t_data *d);
 void		*god(void *phi_ptr);
 

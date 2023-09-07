@@ -6,7 +6,7 @@
 /*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:33:02 by anmande           #+#    #+#             */
-/*   Updated: 2023/09/06 18:55:23 by admin            ###   ########.fr       */
+/*   Updated: 2023/09/07 14:55:36 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,13 @@ unsigned int truetime(t_data *d)
 	return (time - d->start_time);
 }
 
-void	ft_usleep(t_data *d, t_phi phi)
+void	ft_usleep(unsigned ms, t_phi *phi)
 {
-	printf("%d %d is eating\n", truetime(phi.table), phi.id);
-	usleep(d->time_to_eat * 1000);
-	printf("%d %d is sleeping\n", truetime(phi.table), phi.id);
-	usleep(d->time_to_sleep * 1000);
+	unsigned	start;
+
+	start = truetime(phi->table);
+	while (truetime(phi->table) - start < ms)
+	{
+		usleep(ms / 10);
+	}
 }
