@@ -6,7 +6,7 @@
 /*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 11:22:55 by anmande           #+#    #+#             */
-/*   Updated: 2023/09/07 11:56:13 by admin            ###   ########.fr       */
+/*   Updated: 2023/09/07 21:50:28 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	init_thread(t_data *d)
 	int	i;
 
 	i = 0;
+	//On créé t0 ici avec utilasant la ft god comme routine
 	while (i < d->nb_philo)
 	{
 		if (pthread_create(&d->tid[i], NULL, &ft_routine, &d->phi[i]) == -1)

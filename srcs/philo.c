@@ -6,7 +6,7 @@
 /*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:04:14 by anmande           #+#    #+#             */
-/*   Updated: 2023/09/07 10:04:15 by admin            ###   ########.fr       */
+/*   Updated: 2023/09/07 15:18:25 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,3 @@ int	ft_philo(t_data *d, int argc, char **argv)
 	printf("End of prog. All good.");
 	return (1);
 }
-

@@ -6,7 +6,7 @@
 /*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 15:33:02 by anmande           #+#    #+#             */
-/*   Updated: 2023/09/07 14:55:36 by admin            ###   ########.fr       */
+/*   Updated: 2023/09/07 15:58:17 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	ft_usleep(unsigned ms, t_phi *phi)
 	unsigned	start;
 
 	start = truetime(phi->table);
-	while (truetime(phi->table) - start < ms)
+	while (truetime(phi->table) - start <= ms)
 	{
 		usleep(ms / 10);
 	}
