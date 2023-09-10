@@ -6,7 +6,7 @@
 /*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 11:22:55 by anmande           #+#    #+#             */
-/*   Updated: 2023/09/07 21:50:28 by admin            ###   ########.fr       */
+/*   Updated: 2023/09/10 18:45:44 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	init_thread(t_data *d)
 	{
 		if (pthread_create(&d->tid[i], NULL, &ft_routine, &d->phi[i]) == -1)
 			return (1);
-		usleep(10);
 		i++;
 	}
 	i = 0;
@@ -32,6 +31,8 @@ int	init_thread(t_data *d)
 			return (1);
 		i++;
 	}
+	if (pthread_create(&d->t0, NULL, &god, &d->t0) == -1)
+		return (1);
 	return (0);
 }
 

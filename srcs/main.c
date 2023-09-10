@@ -6,7 +6,7 @@
 /*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:01:02 by anmande           #+#    #+#             */
-/*   Updated: 2023/09/06 21:57:38 by admin            ###   ########.fr       */
+/*   Updated: 2023/09/10 18:46:54 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 void	ft_clear(t_data *d)
 {
-	free(d->forks);
-	//free(d->tid);
-	free(d->phi);
+	// free(d->forks);
+	// //free(d->tid);
+	// free(d->phi);
+	(void)d;
 }
 
 int	main(int argc, char **argv)

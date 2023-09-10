@@ -6,7 +6,7 @@
 /*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:57:32 by anmande           #+#    #+#             */
-/*   Updated: 2023/09/07 11:04:40 by admin            ###   ########.fr       */
+/*   Updated: 2023/09/10 19:32:31 by admin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,11 @@ typedef struct s_phi
 	pthread_mutex_t	*rf;
 	pthread_mutex_t	lock;
 	struct s_data	*table;
-	pthread_t		t0;
 }	t_phi;
 
 typedef struct s_data
 {
+	pthread_t		t0;
 	pthread_t		*tid;
 	int				nb_philo;
 	int				time_to_die;
@@ -80,5 +80,7 @@ int			init_thread(t_data *d);
 void		ft_usleep(unsigned ms, t_phi *phi);
 void		ft_clear(t_data *d);
 void		*god(void *phi_ptr);
+void		ft_print(int i, char *s, t_phi *phi);
+int			check(t_phi *phi);
 
 #endif
